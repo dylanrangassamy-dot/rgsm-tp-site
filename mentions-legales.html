@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentions légales — RGSM TP</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#040506">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='7' y='7' width='18' height='18' rx='4' transform='rotate(45 16 16)' fill='%23e5262b'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,800&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .legal { padding: 140px 0 40px; max-width: 760px; }
+    .legal h1 { margin-bottom: 12px; }
+    .legal-block { margin-top: 24px; padding: 24px 28px; border-radius: 16px; background: var(--ink); box-shadow: var(--key); }
+    .legal-block h2 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+    .legal-block p, .legal-block li { color: var(--ash); font-size: 15px; line-height: 1.65; }
+    .legal-block p + p { margin-top: 10px; }
+    .legal-block dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; font-size: 15px; }
+    .legal-block dt { color: var(--smoke); }
+    .legal-block dd { color: var(--white); }
+    .legal-block a { color: var(--white); text-decoration: underline; text-decoration-color: var(--coral); text-underline-offset: 3px; }
+    .back { display: inline-flex; margin-top: 32px; }
+    @media (max-width: 560px) { .legal-block dl { grid-template-columns: 1fr; gap: 2px; } .legal-block dd { margin-bottom: 10px; } }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-pill">
+      <a href="./" class="logo" aria-label="RGSM TP, accueil"><i class="diamond"></i><span class="wm">RGSM<b>TP</b></span></a>
+      <a href="./" class="btn btn-ghost btn-sm"><span>← Retour au site</span></a>
+    </div>
+  </header>
+
+  <main class="wrap legal">
+    <p class="eyebrow">Informations légales</p>
+    <h1 class="h">Mentions légales</h1>
+    <p class="lead">Conformément à l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN).</p>
+
+    <section class="legal-block">
+      <h2>Éditeur du site</h2>
+      <dl>
+        <dt>Entreprise</dt><dd>RGSM TP</dd>
+        <dt>Activité</dt><dd>Terrassement, VRD, déboisement</dd>
+        <dt>SIRET</dt><dd>106 189 319 00010</dd>
+        <dt>Siège social</dt><dd>Sainte-Anne (97180), Guadeloupe</dd>
+        <dt>Téléphone</dt><dd><a href="tel:+590690522737">0690 52 27 37</a></dd>
+        <dt>Gérant</dt><dd>Dylan Rangassamy</dd>
+        <dt>Directeur de la publication</dt><dd>Dylan Rangassamy</dd>
+      </dl>
+    </section>
+
+    <section class="legal-block">
+      <h2>Hébergement</h2>
+      <dl>
+        <dt>Hébergeur</dt><dd>GitHub, Inc. (GitHub Pages)</dd>
+        <dt>Adresse</dt><dd>88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis</dd>
+        <dt>Site</dt><dd><a href="https://github.com" rel="noopener">github.com</a></dd>
+      </dl>
+    </section>
+
+    <section class="legal-block">
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus de ce site (textes, logo, visuels, mise en page) est la propriété de RGSM TP, sauf mention contraire. Toute reproduction, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+    </section>
+
+    <section class="legal-block">
+      <h2>Données personnelles</h2>
+      <p>Le formulaire de contact n'enregistre aucune donnée sur ce site : il prépare un message que vous envoyez vous-même depuis votre messagerie. Les informations transmises (nom, téléphone, commune, description du projet) servent uniquement à répondre à votre demande de devis et ne sont jamais revendues ni cédées.</p>
+      <p>Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer, contactez RGSM TP au <a href="tel:+590690522737">0690 52 27 37</a>.</p>
+    </section>
+
+    <section class="legal-block">
+      <h2>Cookies</h2>
+      <p>Ce site ne dépose aucun cookie de suivi ni de mesure d'audience. Les polices de caractères sont chargées depuis le service Google Fonts, ce qui transmet votre adresse IP à Google lors de l'affichage des pages.</p>
+    </section>
+
+    <a href="./" class="btn btn-mist back"><span>← Retour à l'accueil</span></a>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p class="meta mono">© <span id="y">2026</span> RGSM TP <i>|</i> SIRET 106 189 319 00010 <i>|</i> Sainte-Anne, Guadeloupe</p>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>

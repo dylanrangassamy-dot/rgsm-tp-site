@@ -84,7 +84,7 @@
       ring.style.transform = `translate(${r.x}px,${r.y}px)`;
       requestAnimationFrame(loop);
     })();
-    document.addEventListener('pointerover', e => ring.classList.toggle('hover', !!e.target.closest('a, button, .card, .tile, .chips label, .palette-list li, ')));
+    document.addEventListener('pointerover', e => ring.classList.toggle('hover', !!e.target.closest('a, button, .card, .tile, .chips label, .palette-list li, .shot')));
   } else {
     addEventListener('pointermove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
   }
@@ -234,7 +234,39 @@
     el.innerHTML = `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid slice">${sky}${s}</svg>`;
   }
   $$('.strata').forEach((el, i) => strata(el, palettes[3], 40 + i, 600, 300, 6));
-  $$('.work').forEach((el, i) => strata($('.work-art', el), palettes[+el.dataset.hue], 7 + i * 13));
+
+  /* ---------- Gallery lightbox ---------- */
+  const shots = $$('.shot'), lb = $('.lightbox'), lbImg = $('img', lb), lbCap = $('figcaption', lb);
+  let cur = 0;
+  const showShot = i => {
+    cur = (i + shots.length) % shots.length;
+    const img = $('img', shots[cur]);
+    lbImg.src = img.src; lbImg.alt = img.alt;
+    lbCap.innerHTML = $('figcaption', shots[cur]).innerHTML;
+  };
+  const openLb = i => { showShot(i); lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; $('.lb-close', lb).focus(); };
+  const closeLb = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+  shots.forEach((s, i) => {
+    s.tabIndex = 0; s.setAttribute('role', 'button');
+    s.addEventListener('click', () => openLb(i));
+    s.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); } });
+    s.addEventListener('pointermove', e => {
+      const r = s.getBoundingClientRect();
+      s.style.setProperty('--px', ((e.clientX - r.left) / r.width - .5).toFixed(3));
+      s.style.setProperty('--py', ((e.clientY - r.top) / r.height - .5).toFixed(3));
+    });
+    s.addEventListener('pointerleave', () => { s.style.setProperty('--px', 0); s.style.setProperty('--py', 0); });
+  });
+  $('.lb-close', lb).addEventListener('click', closeLb);
+  $('.lb-prev', lb).addEventListener('click', e => { e.stopPropagation(); showShot(cur - 1); });
+  $('.lb-next', lb).addEventListener('click', e => { e.stopPropagation(); showShot(cur + 1); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') showShot(cur - 1);
+    if (e.key === 'ArrowRight') showShot(cur + 1);
+  });
 
   /* ---------- Form ---------- */
   const form = $('.form');

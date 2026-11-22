@@ -247,12 +247,12 @@
     });
     if (!ok) return;
     const fd = new FormData(form), types = fd.getAll('type').join(', ') || '—';
-    const body = `Profil : ${fd.get('profil')}
-Nom : ${fd.get('nom')}\nTéléphone : ${fd.get('tel')}\nCommune : ${fd.get('commune') || '—'}\nTravaux : ${types}\n\n${fd.get('message') || ''}`;
+    const body = `Bonjour RGSM TP, je souhaite un devis.\n\nProfil : ${fd.get('profil')}\nNom : ${fd.get('nom')}\nTéléphone : ${fd.get('tel')}\nCommune : ${fd.get('commune') || '—'}\nTravaux : ${types}\n\n${fd.get('message') || ''}`;
+    // Envoi via WhatsApp (0690 52 27 37) : le message pré-rempli s'ouvre dans l'appli
+    const url = `https://wa.me/590690522737?text=${encodeURIComponent(body)}`;
     form.classList.add('sent');
-    $('.btn-block span', form).innerHTML = 'Merci ! Appelez-nous au 0690 52 27 37';
-    // Pas de backend : ouverture du client mail (à remplacer par un envoi serveur)
-    location.href = `mailto:contact@rgsm-tp.fr?subject=${encodeURIComponent('Demande de devis — ' + types)}&body=${encodeURIComponent(body)}`;
+    $('.btn-block span', form).innerHTML = 'Message prêt dans WhatsApp ✓';
+    if (!window.open(url, '_blank', 'noopener')) location.href = url;
   });
   $('.year').textContent = new Date().getFullYear();
 

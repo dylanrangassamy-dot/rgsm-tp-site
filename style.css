@@ -367,3 +367,13 @@ body.ready .palette { opacity: 1; }
 .loader-mark .wm { font-size: 28px; }
 .footer-big { font-style: italic; }
 .footer-big span { margin-left: .12em; background: linear-gradient(180deg, rgba(229,38,43,.45), transparent 90%); -webkit-background-clip: text; background-clip: text; }
+
+/* ---------- WhatsApp ---------- */
+.wa-ico { width: 15px; height: 15px; }
+.kbd-wa { color: #25d366; }
+.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px; border-radius: 9999px; background: #25d366; color: #04140a; font: 600 14px/1 var(--font); box-shadow: rgba(0,0,0,.4) 0 10px 30px, rgba(37,211,102,.35) 0 0 0 0; opacity: 0; transform: translateY(20px) scale(.9); transition: opacity .6s var(--ease), transform .6s var(--ease); animation: waPulse 2.6s ease-out 3s infinite; }
+body.ready .wa-float { opacity: 1; transform: none; }
+.wa-float:hover { transform: translateY(-3px) scale(1.04); }
+.wa-float-ico { width: 22px; height: 22px; }
+@keyframes waPulse { 0% { box-shadow: rgba(0,0,0,.4) 0 10px 30px, rgba(37,211,102,.5) 0 0 0 0; } 70%, 100% { box-shadow: rgba(0,0,0,.4) 0 10px 30px, rgba(37,211,102,0) 0 0 0 16px; } }
+@media (max-width: 640px) { .wa-float span { display: none; } .wa-float { padding: 14px; } }
